@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>BlogSpot | A Place for Your Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css"> <!--Template for css/bootstrap-->
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="mainNav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">BlogSpot</a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item text-black">
+            <a class="nav-link text-grey font-weight-bold" href="/admin">my account</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% block content %}
+  {% endblock content %}
+  <footer class="py-3 bg-grey">
+  </br><br><br>
+    <p class="m-0 text-dark text-center ">Copyright &copy; 2023 BlogSpot. All Rights Reserved. </p>
+  <br>
+  </footer>
+</body>
+
+</html>

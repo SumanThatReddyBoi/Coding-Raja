@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br><br>
+<header>
+    <div class="container">
+        <figure class="text-center">
+            <h2 class="mb-0">
+                Recent Blogs from our Blogger Community
+            </h2>
+            <blockquote class="blockquote">
+                <p class="mb-0">
+                    The first step in blogging is not writing them but reading them.
+                </p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+                Jeff Jarvis
+            </figcaption>
+        </figure>
+    </div>
+</header>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            {% for post in post_list %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            {{ post.title }}
+                        </h2>
+                        <p class="card-text text-muted h6">
+                            {{ post.author }} | {{ post.created_on}} 
+                        </p>
+                        <p class="card-text">
+                            {{post.content|slice:":250"}}
+                            ... <a href=""><b>Read More</b></a>
+                        </p>
+                        <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">
+                            Read More &rarr;
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% block sidebar %} 
+        {% include 'sidebar.html' %}
+    {% endblock sidebar %}
+    </div>
+</div>
+{%endblock%}
